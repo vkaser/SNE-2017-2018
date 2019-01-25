@@ -1,0 +1,60 @@
+\newpage
+\section{Web-services}
+\begin{itemize}
+\item are a service offered by an electronic device to another electronic device, communicating with each other via the World Wide Web
+\item are \textcolor{b}{platform-independent} and \textcolor{b}{language-independent}
+\item use \textcolor{b}{HTTP} for transmitting messages (such as the service request and response)
+\end{itemize}
+
+\subsection*{SOAP Based Web services}
+\text{Enabling Technologies}
+\begin{itemize}
+\item[--] \textcolor{g}{XML}: \textbf{Extensible Markup Language} is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable. 
+\item[--] \textcolor{g}{SOAP}: \textbf{Simple Object Access Protocol} is an XML-based lightweight protocol for the exchange of information in a decentralized, distributed environment.
+\item[--] \textcolor{g}{WSDL}: \textbf{Web Services Description Language} is an XML vocabulary that provides a standard way of describing service interface definition languages (IDLs).
+\end{itemize}
+\begin{Figure}
+\centering
+\includegraphics[width=5.5cm]{ws}
+\captionof{figure}{Enabling Technologies}
+\label{fig:SOAP}
+\end{Figure}
+
+\subsection*{Web Service Reference Framework}
+
+\begin{center}
+\textbf{WSRF specification}
+{\scriptsize
+\begin{Table}
+\begin{tabular}{|K{.45\textwidth}|K{.45\textwidth}|}
+\hline
+\textbf{Name} & \textbf{Describes}\\[.4em]
+\hline
+WS-ResourceProperties &  specifies how resource properties are defined and accessed\\[.4em]
+\hline
+WS-ResourceLifetime & supplies some basic mechanisms to manage the lifecycle of our resources\\[.4em]
+\hline
+WS-ServiceGroup & specifies how exactly we should go about grouping services or WS-Resources together\\[.4em]
+\hline
+WS-BaseFaults & aims to provide a standard way of reporting faults when something goes wrong during a WS-Service invocation\\[.4em]
+\hline
+\end{tabular}
+\captionof{table}{The five specification composing the WSRF}
+\label{tbl:WSPF}
+\end{Table}
+}
+\end{center}
+
+\subsection*{RESTful Web service}
+\begin{itemize}
+\item stands for \textcolor{g}{Re}presentaLonal \textcolor{g}{S}tate \textcolor{g}{T}ransfer
+\item was coined by	Roy	Fielding in	2000 in his Ph.D. dissertaLon	to	describe a	design pattern for implementing networked systems
+\item in many ways,	the	World Wide Web itself, based on HTTP, can be viewed as a REST-based architecture
+\end{itemize}
+
+\begin{Figure}
+\centering
+\includegraphics[width=\linewidth]{REST.png}
+\captionof{figure}{The REST way of Designing the Web Services}
+\label{fig:SOAP}
+\end{Figure}

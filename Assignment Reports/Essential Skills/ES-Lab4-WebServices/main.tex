@@ -1,0 +1,75 @@
+\documentclass{cls/lab}
+%classical internet applications 
+
+\begin{document}
+
+\title{RegEx, VCS, REST}
+\date{\today}
+
+\def \link{https://github.com/feeltheajf/ES-4}
+  
+\maketitle\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{part1/part1}
+
+
+\input{part2/part2}
+
+
+\input{part3/part3}
+
+
+\input{report/report}
+%\input{web/web}
+
+\newpage
+\section*{Appendix}\vspace{3em}
+
+\begin{lstlisting}[caption={Makefile},label=listing1,captionpos=b]
+~\color{r}PROJECT~?=main         ~\color{c}// filenames of the main .tex and .bib files and may be set~
+~\color{c}// \$ make PROJECT=someAnotherProjectName useful if you have different projects in (sub)folder(s)~
+
+~\color{r}FLAGS~=-interaction=batchmode ~\color{c}// concise output~
+~\color{r}OPT~=-~\,~-no-pdf        ~\color{c}// do not generate PDF on first steps~
+
+~\color{o}.PHONY~: all          ~\color{c}// do not mess files with ~
+~\color{o}.PHONY~: clean        ~\color{c}// these names with ~
+~\color{o}.PHONY~: clean-all    ~\color{c}// make targets~
+
+~\color{b}all~:                 ~\color{c}// main target. we will skip auxiliary files, and discuss the essentials~
+	xelatex $(~\color{r}OPT~) $(~\color{r}FLAGS~) $(~\color{r}PROJECT~).tex    ~\color{c}// generates .aux file with information about references~
+	bibtex  $(~\color{r}PROJECT~).aux                    ~\color{c}// produces formatted .bbl from .aux and .bib file~
+	xelatex $(~\color{r}OPT~) $(~\color{r}FLAGS~) $(~\color{r}PROJECT~).tex    ~\color{c}// resolves cross-references, inserts references~
+	xelatex $(~\color{r}FLAGS~) $(~\color{r}PROJECT~).tex           ~\color{c}// inserts citation labels~
+
+~\color{b}clean~:               ~\color{c}// remove intermediate files~
+	~\color{red}rm -f~ *.log *.bak *.aux *.bbl *.blg *.idx *.toc *.out *.xdv *.lof *.lot               
+
+
+~\color{b}clean-all~:           ~\color{c}// some more files and PDFs too~
+	~\color{red}rm -f~ *.dvi *.log *.bak *.aux *.bbl *.blg *.idx *.~ps~ *.eps *.pdf *.toc *.out *.lof *.lot *.xdv
+\end{lstlisting}
+
+\newpage
+\vspace{6em}
+\listoffigures
+
+\vspace{6em}
+\listoftables
+
+\vspace{6em}
+\bibliographystyle{IEEEtran}
+\bibliography{main}
+
+
+\end{document}

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        AS3 - RF Device sniffer - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/github-gist.min.css" integrity="sha256-tAflq+ymku3Khs+I/WcAneIlafYgDiOQ9stIHH985Wo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic,300italic,300|Source+Serif+Pro|Source+Code+Pro:400,300,500&subset=latin,latin-ext);.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\A0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.markdown-body kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:758px;margin-top:25px;margin-bottom:-25px;color:#777}.ui-toc{position:fixed;bottom:20px;z-index:10000}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,Osaka,Meiryo,\\30E1\30A4\30EA\30AA,MS Gothic,"\FF2D\FF33   \30B4\30B7\30C3\30AF",sans-serif}.ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,"\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF",sans-serif}.markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,Microsoft JhengHei,\\5FAE\8EDF\6B63\9ED1,sans-serif}.ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,\\5FAE\8EDF\6B63\9ED1UI,sans-serif}.markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang SC,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,sans-serif}.ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,\\5FAE\8F6F\96C5\9ED1UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:contain}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.unselectable{-moz-user-select:none;-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid"><h1 id="AS3---RF-Device-sniffer"><a class="anchor hidden-xs" href="#AS3---RF-Device-sniffer" title="AS3---RF-Device-sniffer"><span class="octicon octicon-link"></span></a>AS3 - RF Device sniffer</h1><p><em>Device sniffer [Hard]: Saif, Sergey, Ilnar, Pierre</em></p><h2 id="1-Get-the-environment-up-and-running"><a class="anchor hidden-xs" href="#1-Get-the-environment-up-and-running" title="1-Get-the-environment-up-and-running"><span class="octicon octicon-link"></span></a>1. Get the environment up and running.</h2><p>Assembled circuit for transmitter and receiver:<br>
+<img src="https://i.imgur.com/gtg3Piq.jpg" alt=""></p><p>Testing sending and receiving messages using the RadioHead library:<br>
+<img src="https://i.imgur.com/z3yCGiv.png" alt=""></p><p>The receiving message contains the word “hello” in hex format.</p><p>Refs.</p><ul>
+<li><a href="http://www.airspayce.com/mikem/arduino/RadioHead/" target="_blank">http://www.airspayce.com/mikem/arduino/RadioHead/</a></li>
+<li><a href="http://www.instructables.com/id/Hack-Remote-RF-Security-Locks-With-Arduino-and-Usb/" target="_blank">http://www.instructables.com/id/Hack-Remote-RF-Security-Locks-With-Arduino-and-Usb/</a></li>
+<li><a href="https://github.com/merbanan/rtl_433" target="_blank">https://github.com/merbanan/rtl_433</a></li>
+</ul><h2 id="2-Replay-attack-on-the-car-remote-contol"><a class="anchor hidden-xs" href="#2-Replay-attack-on-the-car-remote-contol" title="2-Replay-attack-on-the-car-remote-contol"><span class="octicon octicon-link"></span></a>2. Replay attack on the car remote contol</h2><p>Sniffer circuit for receiving a signal from car remote control:<br>
+<img src="https://i.imgur.com/w6lThKe.jpg" alt=""></p><p>Result: there is no data received from the car remote control. Serial monitor Arduino with <em>radio-head</em> and <em>rc-swithc-master</em> libraries:<br>
+<img src="https://i.imgur.com/B5lA0nX.png" alt=""></p><p>But we can see the data using <em>gqrx</em> package:<br>
+<img src="https://i.imgur.com/0r4zUgh.jpg" alt=""></p><p>Attempts to read this data at 434.5 MHz using the <em>rtl_433</em> package:<br>
+<img src="https://i.imgur.com/IReWVmk.jpg" alt=""></p><p>We can see the signal but data is unavailable. So we can conclude that this remote control has sufficient protection against this type of attack.</p><h2 id="31-Can-you-passively-sniff-data-from-the-433MHz-band"><a class="anchor hidden-xs" href="#31-Can-you-passively-sniff-data-from-the-433MHz-band" title="31-Can-you-passively-sniff-data-from-the-433MHz-band"><span class="octicon octicon-link"></span></a>3.1. Can you passively sniff data from the 433MHz band?</h2><h3 id="wave-file-sent-by-HackRF-and-listening-with-RTL-dongle"><a class="anchor hidden-xs" href="#wave-file-sent-by-HackRF-and-listening-with-RTL-dongle" title="wave-file-sent-by-HackRF-and-listening-with-RTL-dongle"><span class="octicon octicon-link"></span></a>wave file sent by HackRF and listening with RTL dongle</h3><p>just the noise on stdout @433Mhz,</p><pre><code>rtl_sdr -f 433000000 -s 44100 -
+</code></pre><p><img src="https://i.imgur.com/nyLZVHA.png" alt=""></p><p>sending the WAVE file with its pre-defined rate (44100 samples per second) into the air with HackRF @433Mhz,</p><pre><code>hackrf_transfer -t /var/tmp/sample.wav -f 433000000 -f 44100
+</code></pre><p><img src="https://i.imgur.com/PC6KdQ3.png" alt=""></p><p>the noise mixed with the wave file,</p><pre><code>rtl_sdr -f 433000000 -s 44100 -
+</code></pre><p><img src="https://i.imgur.com/TTqiC4c.png" alt=""></p><p>and also identified with CubicSDR,</p><p><img src="https://i.imgur.com/5awKQE7.png" alt=""></p><h2 id="22-Is-it-possible-to-generate-graphs-or-data-streams-out-of-the-gathered-data"><a class="anchor hidden-xs" href="#22-Is-it-possible-to-generate-graphs-or-data-streams-out-of-the-gathered-data" title="22-Is-it-possible-to-generate-graphs-or-data-streams-out-of-the-gathered-data"><span class="octicon octicon-link"></span></a>2.2. Is it possible to generate graphs or data streams out of the gathered data?</h2><p>It depends on the noise in that channel, sometimes we can see the data that has been transmitted in hex format.</p><pre><code>Detected FSK package  @ 2018-01-27 14:47:18
+Analyzing pulses...
+Total count:   33,  width: 1031219    (4124.9 ms)
+Pulse width distribution:
+ [ 0] count:    1,  width:     0 [ 0; 0]  (   0 us)
+ [ 1] count:   21,  width:    11 [10;13]  (  44 us)
+ [ 2] count:    4,  width:    21 [19;24]  (  84 us)
+ [ 3] count:    7,  width:    15 [15;16]  (  60 us)
+Gap width distribution:
+ [ 0] count:    1,  width:  7283 [7283;7283]  (29132 us)
+ [ 1] count:    3,  width: 14490 [13712;15922]  (57960 us)
+ [ 2] count:    3,  width:   361 [357;365]  (1444 us)
+ [ 3] count:    6,  width: 47752 [44856;51685]  (191008 us)
+ [ 4] count:    7,  width:   214 [182;248]  ( 856 us)
+ [ 5] count:    3,  width: 90264 [81710;104099]  (361056 us)
+ [ 6] count:    2,  width:   126 [121;132]  ( 504 us)
+ [ 7] count:    2,  width: 68076 [65284;70868]  (272304 us)
+ [ 8] count:    2,  width: 33997 [32890;35105]  (135988 us)
+ [ 9] count:    2,  width: 26865 [26046;27684]  (107460 us)
+ [10] count:    1,  width: 162010 [162010;162010]  (648040 us)
+Pulse period distribution:
+ [ 0] count:    1,  width:  7283 [7283;7283]  (29132 us)
+ [ 1] count:    3,  width: 14503 [13728;15932]  (58012 us)
+ [ 2] count:    3,  width:   372 [368;375]  (1488 us)
+ [ 3] count:    6,  width: 47764 [44866;51697]  (191056 us)
+ [ 4] count:    7,  width:   228 [197;263]  ( 912 us)
+ [ 5] count:    3,  width: 90275 [81722;104109]  (361100 us)
+ [ 6] count:    2,  width:   143 [141;145]  ( 572 us)
+ [ 7] count:    2,  width: 68096 [65306;70887]  (272384 us)
+ [ 8] count:    2,  width: 34009 [32902;35117]  (136036 us)
+ [ 9] count:    2,  width: 26876 [26057;27695]  (107504 us)
+ [10] count:    1,  width: 162034 [162034;162034]  (648136 us)
+Level estimates [high, low]:  15979,    194
+Frequency offsets [F1, F2]:   25423,   4899  (+97.0 kHz, +18.7 kHz)
+Guessing modulation: Pulse Width Modulation with sync/delimiter
+Attempting demodulation... short_limit: 11, long_limit: 15, reset_limit: 162011, sync_width: 21
+
+*** signal_start = 95191520, signal_end = 95250643
+signal_len = 59123,  pulses = 85
+Iteration 1. t: 6    min: 3 (77)    max: 10 (8)    delta 26
+Iteration 2. t: 4    min: 2 (66)    max: 7 (19)    delta 10
+Iteration 3. t: 4    min: 2 (52)    max: 6 (33)    delta 1
+Iteration 4. t: 4    min: 2 (52)    max: 6 (33)    delta 0
+Pulse coding: Short pulse length 2 - Long pulse length 6
+
+Short distance: 127, long distance: 10788, packet distance: 18048
+
+p_limit: 4
+bitbuffer:: Number of rows: 2 
+[00] {49} 50 66 b4 12 b8 24 00 : 01010000 01100110 10110100 00010010 10111000 00100100 0
+[01] {36} 10 fd 84 6c 10 : 00010000 11111101 10000100 01101100 0001
+</code></pre><p>But if there is a noise in that channel we can not see any data and we will see a lot of useless data.</p><pre><code>signal_len = 8071508,  pulses = 2
+Iteration 1. t: 4025715    min: 2506896 (1)    max: 5544535 (1)    delta -1302144768
+Iteration 2. t: 4025715    min: 2506896 (1)    max: 5544535 (1)    delta 0
+Pulse coding: Short pulse length 2506896 - Long pulse length 5544535
+Short distance: 76, long distance: 0, packet distance: 76
+p_limit: 4025715
+bitbuffer:: Number of rows: 2 
+[00] {1} 00 : 0
+[01] {1} 80 : 1
+
+</code></pre><h2 id="23-Can-you-retrieve-the-library-added-logic-functionality-by-sniffing-the-stream"><a class="anchor hidden-xs" href="#23-Can-you-retrieve-the-library-added-logic-functionality-by-sniffing-the-stream" title="23-Can-you-retrieve-the-library-added-logic-functionality-by-sniffing-the-stream"><span class="octicon octicon-link"></span></a>2.3. Can you retrieve the library added logic functionality by sniffing the stream?</h2><p>Yes, we can use <strong>rtl_433</strong> that turns the Realtek RTL2832 based DVB dongle into a 433MHz generic data receiver. This program allows decoding traffic from devices that are broadcasting on 433MHz.<br>
+The stream data:<br>
+<img src="https://i.imgur.com/jUPjEk1.png" alt=""></p><p>The logic functionality by sniffing the stream:</p><pre><code>$ rtl_433 -f 433275000 -s 25000 -a -G
+...
+* signal_start = 8751671, signal_end = 16823176
+signal_len = 8071505,  pulses = 2
+Iteration 1. t: 4025712    min: 2506898 (1)    max: 5544526 (1)    delta -1296117180
+Iteration 2. t: 4025712    min: 2506898 (1)    max: 5544526 (1)    delta 0
+Pulse coding: Short pulse length 2506898 - Long pulse length 5544526
+Short distance: 80, long distance: 0, packet distance: 80
+p_limit: 4025712
+bitbuffer:: Number of rows: 2 
+[00] {1} 00 : 0
+[01] {1} 80 : 1
+
+* signal_start = 29692211, signal_end = 37763719
+signal_len = 8071508,  pulses = 2
+Iteration 1. t: 4025715    min: 2506896 (1)    max: 5544535 (1)    delta -1302144768
+Iteration 2. t: 4025715    min: 2506896 (1)    max: 5544535 (1)    delta 0
+Pulse coding: Short pulse length 2506896 - Long pulse length 5544535
+Short distance: 76, long distance: 0, packet distance: 76
+p_limit: 4025715
+bitbuffer:: Number of rows: 2 
+[00] {1} 00 : 0
+[01] {1} 80 : 1
+
+* signal_start = 40069671, signal_end = 40445273
+signal_len = 375602,  pulses = 28
+Iteration 1. t: 5    min: 2 (26)    max: 9 (2)    delta 1
+Iteration 2. t: 4    min: 2 (25)    max: 7 (3)    delta 4
+Iteration 3. t: 4    min: 2 (24)    max: 6 (4)    delta 1
+Iteration 4. t: 4    min: 2 (24)    max: 6 (4)    delta 0
+Pulse coding: Short pulse length 2 - Long pulse length 6
+Short distance: 4772, long distance: 19195, packet distance: 38778
+p_limit: 4
+bitbuffer:: Number of rows: 3 
+[00] {16} 0c 00 : 00001100 00000000 
+[01] {4} 80 : 1000
+[02] {8} 10 : 00010000 
+
+* signal_start = 40533500, signal_end = 40564375
+signal_len = 30875,  pulses = 3
+Iteration 1. t: 3    min: 0 (0)    max: 7 (3)    delta 20
+Iteration 2. t: 2    min: 2 (2)    max: 3 (1)    delta 20
+Iteration 3. t: 3    min: 0 (0)    max: 7 (3)    delta 20
+Iteration 4. t: 2    min: 2 (2)    max: 3 (1)    delta 20
+Iteration 5. t: 3    min: 0 (0)    max: 7 (3)    delta 20
+Iteration 6. t: 2    min: 2 (2)    max: 3 (1)    delta 20
+Iteration 7. t: 3    min: 0 (0)    max: 7 (3)    delta 20
+Iteration 8. t: 2    min: 2 (2)    max: 3 (1)    delta 20
+Iteration 9. t: 3    min: 0 (0)    max: 7 (3)    delta 20
+Distance coding: Pulse length 3
+Short distance: 356, long distance: 356, packet distance: 10511
+p_limit: 3
+bitbuffer:: Number of rows: 2 
+[00] {0} : 
+[01] {0} : 
+
+...
+</code></pre><p>The parameter <strong>bitbuffer</strong> contains a bit sequence that can give us some logical value of sniffing data.</p></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav"><li class=""><a href="#AS3---RF-Device-sniffer">AS3 - RF Device sniffer</a><ul class="nav"><li><a href="#1-Get-the-environment-up-and-running">1. Get the environment up and running.</a></li><li><a href="#2-Replay-attack-on-the-car-remote-contol">2. Replay attack on the car remote contol</a></li><li><a href="#31-Can-you-passively-sniff-data-from-the-433MHz-band">3.1. Can you passively sniff data from the 433MHz band?</a><ul class="nav"><li><a href="#wave-file-sent-by-HackRF-and-listening-with-RTL-dongle">wave file sent by HackRF and listening with RTL dongle</a></li></ul></li><li><a href="#22-Is-it-possible-to-generate-graphs-or-data-streams-out-of-the-gathered-data">2.2. Is it possible to generate graphs or data streams out of the gathered data?</a></li><li><a href="#23-Can-you-retrieve-the-library-added-logic-functionality-by-sniffing-the-stream">2.3. Can you retrieve the library added logic functionality by sniffing the stream?</a></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
+        <div class="toc"><ul class="nav"><li class=""><a href="#AS3---RF-Device-sniffer">AS3 - RF Device sniffer</a><ul class="nav"><li><a href="#1-Get-the-environment-up-and-running">1. Get the environment up and running.</a></li><li><a href="#2-Replay-attack-on-the-car-remote-contol">2. Replay attack on the car remote contol</a></li><li><a href="#31-Can-you-passively-sniff-data-from-the-433MHz-band">3.1. Can you passively sniff data from the 433MHz band?</a><ul class="nav"><li><a href="#wave-file-sent-by-HackRF-and-listening-with-RTL-dongle">wave file sent by HackRF and listening with RTL dongle</a></li></ul></li><li><a href="#22-Is-it-possible-to-generate-graphs-or-data-streams-out-of-the-gathered-data">2.2. Is it possible to generate graphs or data streams out of the gathered data?</a></li><li><a href="#23-Can-you-retrieve-the-library-added-logic-functionality-by-sniffing-the-stream">2.3. Can you retrieve the library added logic functionality by sniffing the stream?</a></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

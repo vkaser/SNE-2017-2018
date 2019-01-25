@@ -1,0 +1,68 @@
+\newpage
+\section{Version Control System}
+\begin{multicols*}{2}
+A \textbf{version control system} provides \textcolor{red}{support} for the \textcolor{red}{development} of \textcolor{red}{software} in particular.
+\begin{itemize}
+\item documenting an annotated history of a project is a \textbf{\textit{complex matter}} (changes, bugs)
+\item multiple editors in use, keep developers from overwriting each other work
+\item \textbf{\textit{backtracking}} to a previous version
+\item \textbf{\textit{branching}}
+\end{itemize}
+\begin{center}
+\textcolor{b}{\textbf{VCS}}
+\begin{Table}
+\begin{tabular}{K{.45\textwidth}|K{.45\textwidth}}
+\hline
+\textbf{YES} & \textbf{NO}\\[.4em]
+\hline
+facilitates \textcolor{g}{bug detection} when software is modified & \vspace{0.2em} a \textcolor{g}{build} system\\[.4em]
+\hline
+\vspace{0.6em}\textcolor{g}{economy} in disk space while saving versions & a \textcolor{g}{substitute} for communication between developers of for management\\[.4em]
+\hline
+\textcolor{g}{prevents code over-writing} in a project team & \textcolor{g}{create any magic} for you\\[.4em]
+\hline
+\end{tabular}
+\captionof{table}{VCS do’s and don'ts ...}
+\label{tbl_ex}
+\end{Table}
+\end{center}
+
+\textbf{Version Control System Types [\ref{fig:vcs}]:}
+\begin{enumerate}
+\item Centralized (RCS, CVS, SVN)
+\item Decentralized (Git, Mercurial, Bazaar)
+\end{enumerate}
+
+\textcolor{b}{Centralized VCS}
+
+In a centralized VCS, there is a \textbf{single copy} of the repository, on a server. The developers check out the source code from the central repository. 
+
+\textit{Disadvantages:}
+\begin{itemize}
+\item [--] If the server goes down, \textbf{nobody can version the changes} they worked at!
+\item [--] If the server's hard disk becomes corrupt, all the \textbf{history on the changes is lost}!
+\end{itemize}
+
+\textcolor{b}{Distributed VCS}
+
+In a distributed VCS, every developer \textbf{clones the repository}, not only it gets the project files.
+Another feature is that the change sets can be \textbf{committed locally}, and then \textbf{push the changes} to the remote servers.
+
+\textit{Advantages:}
+\begin{itemize}
+\item [--] In case the server dies, any of the client repositories can be used to restore it.
+\item [--] No network connection needed for operations other than push and pull.
+\end{itemize}
+\textit{Disadvantages:}
+\begin{itemize}
+\item [--] If the project contains many large files, the space needed to store all the versions for those files increases
+\item [---] If the project has a very long history, downloading the entire history can take more time
+\end{itemize}
+
+\begin{Figure}
+\includegraphics[width=\textwidth]{image}
+\captionof{figure}{VCS. Centralized \textit{vs} Distributed}
+\label{fig:vcs}
+\end{Figure}
+
+\end{multicols*}

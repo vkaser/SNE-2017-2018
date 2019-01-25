@@ -1,0 +1,70 @@
+\section{RegEx}
+
+\begin{multicols*}{2}\setlength{\parindent}{0pt}
+
+A regular expression (\textcolor{o}{regexp}, \textcolor{r}{regex}, \textcolor{b}{regxp}) is a string (a word), that, \textbf{according to certain \textcolor{red}{syntax rules}, describes \textcolor{red}{\underline{a set of strings}}} (a language)
+
+According to formal languages theory, languages represented by regular expressions are called regular languages. They correspond to "type~3" grammars in the Chomsky hierarchy \cite{wiki1}, \autoref{hier}
+
+\begin{Figure}
+ \centering
+ \includegraphics[width=\linewidth]{hier}
+ \captionof{figure}{Chomsky hierarchy}
+ \label{hier}
+\end{Figure}
+
+
+Context free languages can be defined in different notations such as \href{https://en.wikipedia.org/wiki/Backus–Naur_form}{BNF} (Backus Normal/Naur Form) and \href{https://en.wikipedia.org/wiki/Augmented_Backus–Naur_form}{ABNF} (Augmented Backus–Naur Form).
+
+Basic operators are as follows
+\begin{itemize}
+    \item concatenation\verb|   |" "
+    \item alternatives\verb|    |"\textcolor{red}{|}"
+    \item repetition\verb|      |"\textcolor{red}{*}"
+    \item grouping\verb|        |"\textcolor{red}{()}"
+    \item comments\verb|        |"\textcolor{red}{;}"
+\end{itemize}
+
+There are two kinds of regular expression engines:
+
+\begin{itemize}
+    \item[---] \textcolor{r}{text-directed} engines (DFA)
+    \item[---] \textcolor{r}{regex-directed} engines (NFA)
+\end{itemize}
+
+All modern regex flavors are based on \textcolor{r}{regex-directed} engines for two useful features \cite{master}
+
+\begin{itemize}
+    \item[::] lazy quantifiers
+    \item[::] back references
+\end{itemize}
+
+Basic Unix regexps are listed in table below\vspace{.5em}
+
+\begin{Table}
+
+\begin{tabular}{K{.2\linewidth}|K{.75\linewidth}}
+\hline
+\textcolor{red}{[}a\textcolor{red}{]}  & represents \textbf{a}\\[.4em] \hline
+[\textcolor{red}{abc}] & represents \textbf{a}, \textbf{b} or \textbf{c} \\[.4em] \hline
+[a\textcolor{red}{-}z] & any character from \textbf{a} to \textbf{z} \\[.4em] \hline
+[0\textcolor{red}{-}9] & represents any \textbf{digit} \\[.4em] \hline
+\end{tabular}
+\vspace{.5em}
+\captionof{table}{Unix regexps examples}
+\end{Table}\vspace{.5em}
+
+
+Finally, the main question \vspace{.5em}
+
+\begin{Figure}
+ \centering
+ \includegraphics[width=\linewidth]{do_they}
+ \captionof{figure}{Just curious}
+\end{Figure} \vspace{.5em}
+
+The answer is - "NO". In order to parse regular expression properly regex has to be recursive, which makes it into a context free language. However some regex engines support recursion (such as Perl Compatible - \href{https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions}{PCRE})
+
+
+
+\end{multicols*}

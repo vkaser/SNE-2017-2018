@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Cybercrime and Computer Forensics - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/github-gist.min.css" integrity="sha256-tAflq+ymku3Khs+I/WcAneIlafYgDiOQ9stIHH985Wo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic,300italic,300|Source+Serif+Pro|Source+Code+Pro:400,300,500&subset=latin,latin-ext);.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\A0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.markdown-body kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:758px;margin-top:25px;margin-bottom:-25px;color:#777}.ui-toc{position:fixed;bottom:20px;z-index:10000}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,Osaka,Meiryo,\\30E1\30A4\30EA\30AA,MS Gothic,"\FF2D\FF33   \30B4\30B7\30C3\30AF",sans-serif}.ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,"\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF",sans-serif}.markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,Microsoft JhengHei,\\5FAE\8EDF\6B63\9ED1,sans-serif}.ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,\\5FAE\8EDF\6B63\9ED1UI,sans-serif}.markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang SC,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,sans-serif}.ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,\\5FAE\8F6F\96C5\9ED1UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:contain}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.unselectable{-moz-user-select:none;-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid" style="position: relative;"><h1 id="Cybercrime-and-Computer-Forensics"><a class="anchor hidden-xs" href="#Cybercrime-and-Computer-Forensics" title="Cybercrime-and-Computer-Forensics"><span class="octicon octicon-link"></span></a>Cybercrime and Computer Forensics</h1><h4 id="Team-5-Svetlana-Burikova-Sergey-Grebennikov-Saif--Yuliia-Sharafitdinova"><a class="anchor hidden-xs" href="#Team-5-Svetlana-Burikova-Sergey-Grebennikov-Saif--Yuliia-Sharafitdinova" title="Team-5-Svetlana-Burikova-Sergey-Grebennikov-Saif--Yuliia-Sharafitdinova"><span class="octicon octicon-link"></span></a>Team 5: Svetlana Burikova, Sergey Grebennikov, Saif , Yuliia Sharafitdinova</h4><h2 id="Workshop-3---Memory-analysis"><a class="anchor hidden-xs" href="#Workshop-3---Memory-analysis" title="Workshop-3---Memory-analysis"><span class="octicon octicon-link"></span></a>Workshop 3 - Memory analysis</h2><h3 id="Situation"><a class="anchor hidden-xs" href="#Situation" title="Situation"><span class="octicon octicon-link"></span></a>Situation:</h3><p><em>You have a memory image taken from a laptop, which was suspected to be involved in a serious e-banking incident. It is to be assumed that some malware could be on it. You suspect it could be either Zeus or Gozi, as these two malware families are currently active in your country.</em></p><p>Make yourself familiar with the malware families and what characteristics they have and how they can potentially be recognized.</p><p>It’s now your job to find out what could have happened.</p><ul>
+<li>A memory image from the PC was drawn and is stored on the VMware image</li>
+<li>The registry was dumped too and is also available for investigation.</li>
+</ul><hr><h3 id="Implementation"><a class="anchor hidden-xs" href="#Implementation" title="Implementation"><span class="octicon octicon-link"></span></a>Implementation:</h3><h3 id="strings-and-grep"><a class="anchor hidden-xs" href="#strings-and-grep" title="strings-and-grep"><span class="octicon octicon-link"></span></a>strings and grep</h3><p>First, apply <em><strong>strings</strong></em> and <em><strong>grep</strong></em> to the memory image to extract ASCII data.</p><ul>
+<li>Try to find answers for the following questions:
+<ul>
+<li>
+<p><strong>What information can be found?</strong><br>
+Using <em><strong>strings</strong></em> and <em><strong>grep</strong></em> utilities we are able to find any information that was stored in the RAM during the dumping. Firstly we need to translate the dump data to strings of printable characters into a file:</p>
+<pre><code>  $ strings images/MEMORY-IMG2.DMP &gt; strings.txt
+</code></pre>
+<p>After that we can extract the character data from the <em>strings.txt</em> file with <em><strong>grep</strong></em> utility and find information about <em>processes, libraries, files with the specified format, sockets, URLs, registries, folder paths</em> and so on.</p>
+<pre><code>  $ grep -E '*\.exe' strings.txt &gt; exefiles.txt
+  $ grep -E '*\.dll' strings.txt &gt; dllfiles.txt
+  $ grep -E '[Ww]indow' strings.txt &gt; windows.txt
+  $ grep -E 'socks' strings.txt &gt; socks.txt
+  $ grep -E '*\.pdf' strings.txt &gt; pdfdata.txt
+  $ grep -E 'HKCU|HKLM|HKEY_LOCAL_MACHINE|HKEY_CURRENT_USER' strings.txt &gt; reg.txt
+  $ grep -E 'http:\/\/|https:\/\/' strings.txt &gt; http.txt
+  $ grep 'c:\\' strings.txt &gt; paths.txt
+</code></pre>
+</li>
+<li>
+<p><strong>Which applications were running?</strong><br>
+If we look at the above-formed file <em><strong>exefiles.txt</strong></em> we can discover the system and user applications that were running:</p>
+<pre><code>  wuauclt.exe
+  cmd.exe
+  iexplore.exe
+  firefox.exe
+  %lu.exe
+  bittorrent.exe
+  ntoskrnl.exe
+  clt.exe
+  sctasks.exe
+  sdbinst.exe
+  secedit.exe
+  services.exe
+  sessmgr.exe
+  sethc.exe
+  setreg.exe
+  infopath.exe
+  AdobeCollabSync.exe
+  "%sactsetup.exe" /J:job.ie4 /r:n /q %s /s:"%s" 
+  ipconfig.exe
+  svchost.exe
+  netstat.exe
+  winlogon.exe
+  lsass.exe
+  explorer.exe
+  spoolsv.exe
+  AcroRd32.exe
+  realplay.exe
+  jusched.exe
+  jqs.exe
+  LimeWire.exe
+  winampa.exe
+  ctfmon.exe
+  msmsgs.exe
+  wscntfy.exe
+  qttask.exe
+  smss.exe
+  services.exe
+  alg.exe
+  csrss.exe
+  ntoskrnl.exe
+  icwrmind.exe
+  icwtutor.exe
+  ie4uinit.exe
+  iexpress.exe
+  esentutl.exe
+  eudcedit.exe
+  evcreate.exe
+  userinit.exe
+  userstub.exe
+  usetup.exe
+  utilman.exe
+  verifier.exe
+  vssadmin.exe
+  shadow.exe
+  wextract.exe
+  wiaacmgr.exe
+  winchat.exe
+  Adobe Photoshop Lightroom 2.0 Beta 439142.exe
+  Adobe Photoshop Lightroom 1.3.exe
+  Adobe Photoshop Lightroom 1.3.1.exe
+  Adobe Photoshop Elements 6.0.exe
+  Adobe Photoshop Elements 6 MAC OSX UB.exe
+  Adobe Photoshop Cs3 Portable 51mb.exe
+  All redfield photoshop plugins.exe
+  ArcSoft Cut It Out v1.0.0.3 for Adobe Photoshop.exe
+  Adobe Photoshop Lightroom v1.3.1.exe
+  Adobe Photoshop Lightroom v1.3.1 Multilingual.exe
+  Adobe Photoshop Lightroom v1.2 Portable.exe
+  Adobe Photoshop Lightroom 2.0.exe
+  Adobe Photoshop CS3 v10.0 Extended - Incl Keygen.exe
+  Adobe Photoshop CS3 Top 100 Simplified Tips  Tricks.exe
+  Adobe Photoshop CS3 Portable.exe
+  Adobe Photoshop CS3 ME Extended.exe
+  Adobe Photoshop CS3 Full With Crack  Keygen.exe
+  Adobe Photoshop CS3 Extended.exe
+  Adobe Photoshop v7.0.exe
+  Adobe Photoshop Plugins Collection.exe
+  Adobe Photoshop Lightroom v1.4.1.exe
+  Adobe Photoshop Lightroom v1.4.1 Multilingual Incl Keyg.exe
+  Adobe Photoshop Lightroom v1.4 Incl Keymaker.exe
+  =w?toshop CS3.exe
+  Adobe Photoshop Cs2 9.0 Final with Keygen.exe
+  Adobe Photoshop CS4 Stonehenge.exe
+  Adobe Photoshop CS4 Beta Portable.exe
+  Adobe Photoshop CS4 2008 Edition.exe
+  Adobe Photoshop CS4 11.0.exe
+  Adobe Photoshop CS4 11 Beta.exe
+  watcher.exe
+  wcom32.exe
+  winamp.exe
+  winword.exe
+  winword.exe
+  excel.exe
+  msaccess.exe
+  msqry32.exe
+  mstore.exe
+  outlook.exe
+  Excel.exe
+  osa.exe
+  &lt;...&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>Which URLs can be identified?</strong><br>
+If we look at the above-formed file <em><strong>http.txt</strong></em> we can discover the URLs that contain interesting <em>http</em> or <em>https</em> strings:</p>
+<pre><code>  http://www.raiffeisen.ch/raiffeisen/internet/home.nsf/sifr.js
+  https://myshiptoyou.com/rfdata/form.php
+  https://myshiptoyou.com/chdata/form.php
+  https://mail.google.com/mail/?ui=2&amp;view=ss&amp;mset=main&amp;ver=-1xgwi395fz0n7&amp;am=%21Y_6TWUBke-eRZdzVEfQ0WuglnwA6guHkSAtSnrecXEHqVtsb&amp;fri
+  http://en.wikipedia.org/wiki/Shareware
+  http://www.usertrust.com
+  http://www.trustcenter.de/guidelines0
+  http://www.w3.org/
+  http://api.flickr.com/services/rest/
+  http://crl.geotrust.com/crls/secureca.crl0
+  http://files.newsnetz.ch/css/images/ico_twitter.png
+  http://www.microsoft.com/provisioning/Branding
+  http://ns.adobe.com/Acrobat/RSS/Inbox/
+  http://keystore.keys.limewire.com/lwp/limewire.keystore
+  https://www.verisign.com/CPS0
+  http://crl.comodoca.com/COMODOCertificationAuthority.crl0l
+  http://www.thawte.com/repository/Thawte_SGC_CA.crt0
+  http://www.certplus.com/CRL/class3TS.crl0
+  http://crl.verisign.com/pca2.1.1.crl0G
+  http://www.valicert.com/
+  http://www.adobe.com
+  http://www.macromedia.com/support/flashplayer/sys/
+  http://www.limewire.com/schemas/application.xsd
+  http://apache.org/xml/properties/internal/document-scanner
+</code></pre>
+<p>In <em>http.txt</em> file we found a lot of certificate files and that the owner is Peter Haag. And he visited <em><strong><a href="http://myshiptoyou.com" target="_blank">myshiptoyou.com</a></strong></em> site a lot of time using <em>Gmail</em> account:</p>
+<p><img src="https://i.imgur.com/xGU77LA.png" alt=""></p>
+<p><img src="https://i.imgur.com/deIhKSO.png" alt=""></p>
+<p>In addition we found the java scripts that was run on the internet banking site <em><strong><a href="http://www.raiffeisen.ch" target="_blank">www.raiffeisen.ch</a></strong></em>.</p>
+</li>
+<li>
+<p><strong>What was the user doing, just before drawing the image?</strong><br>
+The user tried to install unlicensed software Adobe Photoshop CS by using keygen program that cracks licensed software and in the most cases injects the vulnerable code.</p>
+</li>
+<li>
+<p><strong>Are there indications for any malware?</strong><br>
+If we look at the generated <em><strong>dllfile.txt</strong></em>, which contains information about running DLL-files, then we can find libraries that could be infected:</p>
+<pre><code>  WININET.dll 
+  nspr4.dll
+  kernel32.dll
+  krnlbkup.dll
+  lnksinfo.dll
+  ws2_32.dll
+</code></pre>
+<p>In addition, we found the SOCKS proxy in the Firefox browser that might have another advantage: the bad guys can relay any TCP and UDP traffic through the victim’s machine.</p>
+</li>
+<li>
+<p><strong>What conclusions can be drawn?</strong><br>
+Probably, the user’s computer was infected with malicious programs that were launched by the user himself.</p>
+</li>
+</ul>
+</li>
+</ul><h3 id="Scalpel"><a class="anchor hidden-xs" href="#Scalpel" title="Scalpel"><span class="octicon octicon-link"></span></a>Scalpel</h3><p>Although strings reveals a lot of information, processing large images can be cumbersome. Today’s systems can easily have 4-32GB RAM or even more. This means an even more powerful system is required for the analysis.</p><ul>
+<li>Try to complete/confirm your textual information found above, by carving for files using <em>scalpel</em>:
+<ul>
+<li>
+<p><strong>Familiarise yourself with <em>scalpel</em></strong><br>
+<em><strong>scalpel</strong></em> is an open source program for recovering deleted files from a disk image or raw block device  based  on  headers and footers specified by the user.</p>
+</li>
+<li>
+<p><strong>Look at the config in <em>Exercises/scalpel.conf</em></strong><br>
+The configuration file is used to control the types  of  files  <em>Scalpel</em> will attempt to carve. For each file type, the  configuration file  describes the file’s extension, whether the header and footer are case sensitive, the maximum file size, and the header  and  footer  for the file. The footer field is optional, but the header, size, case sensitivity, and extension fields are required.</p>
+</li>
+<li>
+<p><strong>What information does scalpel reveal?</strong><br>
+Information that has been deleted and corresponds to the scalpel configuration file. By default in the config file, there are some strings which are commented. Let’s uncomment these strings and perform the following command:</p>
+<pre><code>  scalpel -o files -c scalpel.conf images/MEMORY-IMG2.DMP
+  &lt;...&gt;
+  Scalpel is done, files carved = 22932, elapsed = 155 seconds.
+</code></pre>
+<p>The most files are corrupted but some image files from internet were saved:<br>
+<img src="https://i.imgur.com/JHPfbum.gif" alt=""></p>
+</li>
+<li>
+<p><strong>What conclusions can be drawn?</strong><br>
+It is very difficult to conclude without any significant data.</p>
+</li>
+<li>
+<p><strong>Is there any evidence for malware?</strong><br>
+Many deleted java source code file might be witnesses about malicious software.</p>
+</li>
+</ul>
+</li>
+</ul><h3 id="Volatility"><a class="anchor hidden-xs" href="#Volatility" title="Volatility"><span class="octicon octicon-link"></span></a>Volatility</h3><p>After you will process more or less easily recognizable data, you will still have more questions such as:</p><ul>
+<li>
+<p><em><strong>Which processes were running?</strong></em></p>
+<p>Image info from Volatility «imageprofile» plugin:</p>
+<pre><code>  $ vol.py -f MEMORY-IMG2.DMP --profile=WinXPSP3x86 imageinfo
+  Volatile Systems Volatility Framework 2.0
+  Determining profile based on KDBG search...
+
+    Suggested Profile(s) : WinXPSP3x86, WinXPSP2x86
+               AS Layer1 : JKIA32PagedMemory (Kernel AS)
+               AS Layer2 : WindowsCrashDumpSpace32 (/data/Exercises/images/MEMORY-IMG2.DMP)
+               AS Layer3 : FileAddressSpace (/data/Exercises/images/MEMORY-IMG2.DMP)
+                PAE type : No PAE
+                     DTB : 0x39000
+                    KDBG : 0x8054cde0L
+                    KPCR : 0xffdff000L
+       KUSER_SHARED_DATA : 0xffdf0000L
+     Image date and time : 2010-05-05 11:54:02 
+   Image local date and time : 2010-05-05 11:54:02 
+    Number of Processors : 1
+              Image Type : Service Pack 3
+</code></pre>
+<p>List of processes:</p>
+<pre><code>      $ vol.py -f MEMORY-IMG2.DMP --profile=WinXPSP3x86 pslist
+  Volatile Systems Volatility Framework 2.0
+   Offset(V)  Name                 PID    PPID   Thds   Hnds   Time 
+  ---------- -------------------- ------ ------ ------ ------ ------------------- 
+  0x823ca830 System                    4      0     54    702 1970-01-01 00:00:00       
+  0x821ef020 smss.exe                500      4      3     19 2010-05-05 11:24:49       
+  0x82276628 csrss.exe               564    500     11    493 2010-05-05 11:24:59       
+  0x81f492c0 winlogon.exe            588    500     19    516 2010-05-05 11:25:01       
+  0x82235020 services.exe            636    588     15    250 2010-05-05 11:25:01       
+  0x81f52020 lsass.exe               656    588     23    348 2010-05-05 11:25:01       
+  0x81f53020 svchost.exe             816    636     15    195 2010-05-05 11:25:02       
+  0x81f632a0 svchost.exe             872    636      8    296 2010-05-05 11:25:03       
+  0x81f20978 svchost.exe             956    636     55   1186 2010-05-05 11:25:03       
+  0x82235560 svchost.exe            1080    636      6     88 2010-05-05 11:25:04       
+  0x81f2bb10 svchost.exe            1224    636     15    198 2010-05-05 11:25:06       
+  0x820e5658 spoolsv.exe            1460    636     11    108 2010-05-05 11:25:07       
+  0x81f87da0 explorer.exe           1532   1388     19    542 2010-05-05 11:25:07       
+  0x8212e368 jusched.exe            1796   1532      6     56 2010-05-05 11:25:15       
+  0x82147a78 winampa.exe            1840   1532      6     55 2010-05-05 11:25:15       
+  0x8212c900 realplay.exe           1852   1532     11    104 2010-05-05 11:25:15       
+  0x8219aae0 qttask.exe             1880   1532      7     76 2010-05-05 11:25:16       
+  0x8214dc08 ctfmon.exe             1952   1532      6     98 2010-05-05 11:25:16       
+  0x8214f1a8 msmsgs.exe             1968   1532      7    185 2010-05-05 11:25:16       
+  0x82131658 jqs.exe                 188    636      5    120 2010-05-05 11:25:16       
+  0x821242b0 bittorrent.exe          296   1532      9    194 2010-05-05 11:25:17       
+  0x82133a78 LimeWire.exe            312   1532     47    680 2010-05-05 11:25:17       
+  0x8215e558 wscntfy.exe            1620    956      1     37 2010-05-05 11:25:22       
+  0x82236020 alg.exe                2104    636      5    102 2010-05-05 11:25:30       
+  0x82300838 wuauclt.exe            2952    956      3    114 2010-05-05 11:26:30       
+  0x81efa020 cmd.exe                3936   1532      6     64 2010-05-05 11:35:29       
+  0x82129530 AcroRd32.exe           2912   1532      8    212 2010-05-05 11:40:25       
+  0x822a56f8 WINWORD.EXE            3028   1532      8    224 2010-05-05 11:40:39       
+  0x81de9020 iexplore.exe           2836   1532     27    647 2010-05-05 11:41:11       
+  0x81dfcda0 ipconfig.exe           1784    312      0 ------ 2010-05-05 11:42:11
+</code></pre>
+</li>
+<li>
+<p><em><strong>Which network connections existed at that time?</strong></em><br>
+We found the following connections:</p>
+<pre><code>  $ vol.py -f MEMORY-IMG2.DMP --profile=WinXPSP3x86 connscan
+  Volatile Systems Volatility Framework 2.0
+   Offset     Local Address             Remote Address            Pid   
+  ---------- ------------------------- ------------------------- ------ 
+  0x01de60d0 24.177.36.130:0           84.67.80.84:0                  0
+  0x01de60e0 77.57.180.189:1261        95.100.44.20:80             2836
+  0x01de7cf8 77.57.180.189:1227        72.14.221.83:443            2836
+  0x01defc48 77.57.180.189:1067        67.246.192.104:20299         312
+  0x01df1cf8 77.57.180.189:1211        72.14.221.83:443            2836
+  0x01df6968 88.216.39.130:0           0.0.0.0:0                      0
+  0x01e22970 127.0.0.1:1029            127.0.0.1:1030               312
+  0x01e39aa8 77.57.180.189:1229        72.14.221.189:443           2836
+  0x01e58558 77.57.180.189:1230        72.14.221.189:443           2836
+  0x01e928b8 77.57.180.189:1267        217.79.188.8:80             2836
+  0x01e94408 5.0.49.2:28129            62.12.138.150:21349       2183366144
+  0x01e95b90 77.57.180.189:1247        62.2.27.27:80               2836
+  0x01eb1c78 77.57.180.189:1259        62.12.138.150:80            2836
+  0x01eb1e68 77.57.180.189:1269        217.79.188.11:80            2836
+  0x01eb6008 77.57.180.189:1055        122.53.187.136:8813          312
+  0x01ec23f8 127.0.0.1:5152            127.0.0.1:1197               188
+  0x01efe538 77.57.180.189:1263        72.14.221.164:80            2836
+  0x01f0c6d8 77.57.180.189:1210        72.14.221.83:443            2836
+  0x01f36c68 127.0.0.1:1033            127.0.0.1:1034               312
+  0x01f36e68 127.0.0.1:1034            127.0.0.1:1033               312
+  0x01f3d4a8 6.0.147.2:28129           74.125.39.97:21349        2182977704
+  0x01f6b008 77.57.180.189:1065        82.7.19.219:43192            312
+  0x01f6b6b8 77.57.180.189:4711        192.65.92.227:14396         4008
+  0x01f9f8b0 127.0.0.1:1030            127.0.0.1:1029               312
+  0x01fa3b48 77.57.180.189:1217        94.102.49.134:80            2836
+  0x01faccf8 77.57.180.189:1255        62.12.138.150:80            2836
+  0x01fd46d8 77.57.180.189:1241        94.102.49.134:443           2836
+  0x021061f0 72.199.246.129:0          83.101.109.225:0          3134238896
+  0x0213a968 127.0.0.1:1036            127.0.0.1:1035               312
+  0x021a7700 77.57.180.189:1254        74.125.39.139:80            2836
+  0x021a7b38 77.57.180.189:1121        72.14.221.155:80          38141956
+  0x021bb2a0 77.57.180.189:1271        95.100.37.115:80            2836
+  0x021c13c0 77.57.180.189:1264        72.14.221.155:80            2836
+  0x02232a50 127.0.0.1:1035            127.0.0.1:1036               312
+  0x02238498 5.0.49.2:28129            62.12.138.150:21349       2183135240
+  0x023e6c50 77.57.180.189:1226        72.14.221.83:443            2836
+</code></pre>
+</li>
+<li>
+<p><em><strong>Is there any evidence for malware?</strong></em><br>
+Find malware plugins:</p>
+<pre><code>  $ vol.py -h | grep -i malware
+  Volatile Systems Volatility Framework 2.0
+          apihooks       	[MALWARE] Find API hooks
+          callbacks      	[MALWARE] Print system-wide notification routines
+          devicetree     	[MALWARE] Show device tree
+          driverirp      	[MALWARE] Driver IRP hook detection
+          gdt            	[MALWARE] Display Global Descriptor Table
+          idt            	[MALWARE] Display Interrupt Descriptor Table
+          impscan        	[MALWARE] Scan a module for imports (API calls)
+          ldrmodules     	[MALWARE] Detect unlinked DLLs
+          malfind        	[MALWARE] Find hidden and injected code
+          psxview        	[MALWARE] Find hidden processes with various process listings
+          ssdt_ex        	[MALWARE] SSDT Hook Explorer for IDA Pro (and SSDT by thread)
+          svcscan        	[MALWARE] Scan for Windows services
+          threads        	[MALWARE] Investigate _ETHREAD and _KTHREADs
+</code></pre>
+<p>Use malware plugins:</p>
+<pre><code>  $ mkdir malware
+  $ vol.py -f MEMORY-IMG2.DMP --profile=WinXPSP3x86 malfind -D malware/
+      $ cd malware/
+  $ ls
+  AcroRd32.exe.2129530.017b0000-017b0fff.dmp    LimeWire.exe.2133a78.03280000-032affff.dmp
+  bittorrent.exe.21242b0.003d0000-003d0fff.dmp  LimeWire.exe.2133a78.032b0000-032bffff.dmp
+  cmd.exe.1efa020.009f0000-009f0fff.dmp         LimeWire.exe.2133a78.032c0000-032cffff.dmp
+  ctfmon.exe.214dc08.008f0000-008f0fff.dmp      LimeWire.exe.2133a78.26990000-2a98ffff.dmp
+  explorer.exe.1f87da0.016e0000-016e0fff.dmp    qttask.exe.219aae0.00920000-00920fff.dmp
+  iexplore.exe.1de9020.00a10000-00a10fff.dmp    realplay.exe.212c900.00dd0000-00dd0fff.dmp
+  jusched.exe.212e368.00930000-00930fff.dmp     services.exe.2235020.00960000-00960fff.dmp
+  LimeWire.exe.2133a78.00920000-00920fff.dmp    svchost.exe.1f20978.02020000-02020fff.dmp
+  LimeWire.exe.2133a78.010d0000-030cffff.dmp    svchost.exe.1f53020.00f00000-00f00fff.dmp
+  LimeWire.exe.2133a78.030d0000-0314ffff.dmp    winampa.exe.2147a78.008f0000-008f0fff.dmp
+  LimeWire.exe.2133a78.03150000-031fffff.dmp    WINWORD.EXE.22a56f8.008a0000-008a0fff.dmp
+  LimeWire.exe.2133a78.03200000-0327ffff.dmp
+</code></pre>
+<p>We suppose that above files were injected and used by hackers.</p>
+<p>Suspicious mutant names (mutantscan):<br>
+<img src="https://i.imgur.com/RuQcgXa.png" alt=""><br>
+<img src="https://i.imgur.com/xhZECZD.png" alt=""></p>
+<p>List of all proccesses:<br>
+<img src="https://i.imgur.com/ADZhu6S.png" alt=""></p>
+<p>Then we iterates all of them using <em>handles</em> module and found:<br>
+<img src="https://i.imgur.com/2HeLj9M.png" alt=""><br>
+So, there are a lot of proccesses and we restrict them using <em>grep Mutant</em>:<br>
+<img src="https://i.imgur.com/1pbaoiv.png" alt=""></p>
+<p>Then we can dump the process from memory:</p>
+<p><img src="https://i.imgur.com/JnIlb81.png" alt=""></p>
+<p>After we downloaded it to <strong>VirusTotal</strong>:</p>
+<p><img src="https://i.imgur.com/bSonbDF.png" alt=""></p>
+<p><img src="https://i.imgur.com/0tR6URD.png" alt=""></p>
+<p><img src="https://i.imgur.com/jcf0Iqs.png" alt=""></p>
+<p><img src="https://i.imgur.com/FEBCQp7.png" alt=""></p>
+<p><img src="https://i.imgur.com/0AEA9MO.png" alt=""></p>
+</li>
+</ul><h3 id="reged"><a class="anchor hidden-xs" href="#reged" title="reged"><span class="octicon octicon-link"></span></a>reged</h3><ul>
+<li>
+<p>Make yourself familiar with reged<br>
+<em><strong>reged</strong></em> is a powerful tool running on *NIXes to navigate within the Windows registry files. You can search, change, add, delete and even dump specific parts of the registry. The registry is a rich source of all sorts of information. Therefore it’s also a good place to search for hints.</p>
+</li>
+<li>
+<p>Based on the finding and conclusions, search for maybe relevant keys in this case.</p>
+<ul>
+<li>
+<p>Search for suspected keys.<br>
+The best way to detect the presence of the <strong>Gozi Trojan</strong> is to look in the registry for the presence of the Gozi values. They are all consistently present here:</p>
+<ul>
+<li>
+<p><strong>Gozi</strong> DLL<br>
+HKLM\System\CurrentControlSet\Control\SessionManager\AppCertDlls (where you’ll find a reference to the Gozi DLL)</p>
+</li>
+<li>
+<p><strong>Gozi</strong> configuration<br>
+HKCU\Software\AppDataLow{GUID} (where {GUID} is a globally unique identifier)</p>
+<p>Let’s check using <strong>reged</strong></p>
+<pre><code>  $ reged -e NTUSER.DAT
+  &gt; ls
+  Node has 10 subkeys and 0 values
+    key name
+    &lt;AppEvents&gt;
+    &lt;Console&gt;
+    &lt;Control Panel&gt;
+    &lt;Environment&gt;
+    &lt;Identities&gt;
+    &lt;Keyboard Layout&gt;
+    &lt;Printers&gt;
+    &lt;Software&gt;
+    &lt;UNICODE Program Groups&gt;
+    &lt;Windows 3.1 Migration Status&gt;
+
+  &gt; cd Software
+
+  \Software&gt; ls
+  Node has 13 subkeys and 0 values
+    key name
+    &lt;Adobe&gt;
+    &lt;AppDataLow&gt;
+    &lt;BitTorrent&gt;
+    &lt;Clients&gt;
+  * &lt;Intel&gt;
+    &lt;JavaSoft&gt;
+    &lt;Macromedia&gt;
+    &lt;Magnet&gt;
+    &lt;Microsoft&gt;
+    &lt;Netscape&gt;
+    &lt;ODBC&gt;
+    &lt;Policies&gt;
+    &lt;Winamp&gt;
+
+  \Software&gt; cd AppDataLow
+
+  \Software\AppDataLow&gt; ls
+  Node has 3 subkeys and 0 values
+    key name
+    &lt;63e6f3eb-3557-80d7-8ed5-5f767a8c21ec&gt;
+    &lt;SOFTWARE&gt;
+    &lt;{2e336455-e9b0-f14f-5962-9db6f3e4d758}&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Can you confirm what you suspected?<br>
+Yes, we found the precense of malware configuration file (Gozi).</p>
+</li>
+</ul>
+</li>
+</ul><p><em><strong>Additional Question to Answer:</strong></em><br>
+Imagine the situation, there was an incident on PC(Windows) but the suspected PC(Windows) is locked. What can you do to be able to produce live forensics? What challenges do you have?</p><p><em><strong>Answer:</strong></em><br>
+In case of the locked PC, it is possible to produce the <strong>FireWire attack</strong> via Firewire serial bus. This attack allows gaining read/write access to a machine’s memory by means of Direct Memory Access (DMA). As this is DMA, the exploit works regardless of whether the target PC is locked or even logged on.  The technique requires that the computer has a FireWire port and working FireWire drivers are installed.<br>
+In addition, we are able to produce <strong>Cold Boot Attack</strong>, which involve copying of the system memory once the system has been powered off. To execute this attack, a running computer is cold-booted (hard reboot). A removable disk is then immediately used to boot a lightweight operating system, which is then used to dump the contents of pre-boot physical memory to a file. Alternatively, the memory modules are removed from the original system and quickly placed in a compatible machine under the attacker’s control, which is then booted to access the memory.</p><div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 100000px; height: 100000px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav"><li class=""><a href="#Cybercrime-and-Computer-Forensics" title="Cybercrime and Computer Forensics">Cybercrime and Computer Forensics</a><ul class="nav"><li class=""><a href="#Workshop-3---Memory-analysis" title="Workshop 3 - Memory analysis">Workshop 3 - Memory analysis</a><ul class="nav"><li class=""><a href="#Situation" title="Situation:">Situation:</a></li><li class=""><a href="#Implementation" title="Implementation:">Implementation:</a></li><li class=""><a href="#strings-and-grep" title="strings and grep">strings and grep</a></li><li><a href="#Scalpel" title="Scalpel">Scalpel</a></li><li class=""><a href="#Volatility" title="Volatility">Volatility</a></li><li><a href="#reged" title="reged">reged</a></li></ul></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
+        <div class="toc"><ul class="nav"><li class=""><a href="#Cybercrime-and-Computer-Forensics" title="Cybercrime and Computer Forensics">Cybercrime and Computer Forensics</a><ul class="nav"><li class=""><a href="#Workshop-3---Memory-analysis" title="Workshop 3 - Memory analysis">Workshop 3 - Memory analysis</a><ul class="nav"><li class=""><a href="#Situation" title="Situation:">Situation:</a></li><li class=""><a href="#Implementation" title="Implementation:">Implementation:</a></li><li class=""><a href="#strings-and-grep" title="strings and grep">strings and grep</a></li><li><a href="#Scalpel" title="Scalpel">Scalpel</a></li><li class=""><a href="#Volatility" title="Volatility">Volatility</a></li><li><a href="#reged" title="reged">reged</a></li></ul></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

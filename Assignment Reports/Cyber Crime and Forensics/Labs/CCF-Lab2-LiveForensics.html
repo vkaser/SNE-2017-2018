@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Cybercrime and Computer Forensics - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/github-gist.min.css" integrity="sha256-tAflq+ymku3Khs+I/WcAneIlafYgDiOQ9stIHH985Wo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic,300italic,300|Source+Serif+Pro|Source+Code+Pro:400,300,500&subset=latin,latin-ext);.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\A0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.markdown-body kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:758px;margin-top:25px;margin-bottom:-25px;color:#777}.ui-toc{position:fixed;bottom:20px;z-index:10000}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,Osaka,Meiryo,\\30E1\30A4\30EA\30AA,MS Gothic,"\FF2D\FF33   \30B4\30B7\30C3\30AF",sans-serif}.ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,"\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF",sans-serif}.markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,Microsoft JhengHei,\\5FAE\8EDF\6B63\9ED1,sans-serif}.ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,\\5FAE\8EDF\6B63\9ED1UI,sans-serif}.markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang SC,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,sans-serif}.ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,\\5FAE\8F6F\96C5\9ED1UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:contain}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.unselectable{-moz-user-select:none;-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid" style="position: relative;"><h1 id="Cybercrime-and-Computer-Forensics"><a class="anchor hidden-xs" href="#Cybercrime-and-Computer-Forensics" title="Cybercrime-and-Computer-Forensics"><span class="octicon octicon-link"></span></a>Cybercrime and Computer Forensics</h1><h4 id="Team-5-Svetlana-Burikova-Sergey-Grebennikov-Saif--Yuliia-Sharafitdinova"><a class="anchor hidden-xs" href="#Team-5-Svetlana-Burikova-Sergey-Grebennikov-Saif--Yuliia-Sharafitdinova" title="Team-5-Svetlana-Burikova-Sergey-Grebennikov-Saif--Yuliia-Sharafitdinova"><span class="octicon octicon-link"></span></a>Team 5: Svetlana Burikova, Sergey Grebennikov, Saif , Yuliia Sharafitdinova</h4><h2 id="Lab-2-Live-Forensics"><a class="anchor hidden-xs" href="#Lab-2-Live-Forensics" title="Lab-2-Live-Forensics"><span class="octicon octicon-link"></span></a>Lab 2: Live Forensics</h2><h3 id="1-Environment"><a class="anchor hidden-xs" href="#1-Environment" title="1-Environment"><span class="octicon octicon-link"></span></a>1 Environment</h3><p><strong>1. Download Virtualbox and install this on your desktop. You will use this to emulate Windows 7. Download the Windows 7 virtual environment from the share on <a href="http://teacher.os3.site/CCF/Lab2/Windows_7_virtual/" target="_blank">http://teacher.os3.site/CCF/Lab2/Windows_7_virtual/</a> and import this to Virtualbox.</strong></p><p><strong>2. Boot the Virtual machine and log in to the OS3 user. This password will not be provided.</strong></p><p><img src="https://i.imgur.com/iUyGlh6.png" alt=""></p><p><strong>3. Please install any legal email client and get an email account using a free IMAP email provider.</strong></p><p><img src="https://i.imgur.com/kfP0uk9.png" alt=""></p><p><img src="https://i.imgur.com/qSBMuKf.png" alt=""></p><p><strong>4. Set up PGP and communicate with your teammate.</strong></p><p>The Gpg4win application was chosen</p><p><img src="https://i.imgur.com/mz25fVJ.png" alt=""></p><p>A personal OpenPGP key pair was created using <em><strong>Kleopatra</strong></em> key manager.</p><p><img src="https://i.imgur.com/d0iSo0i.png" alt=""></p><p>To send an encrypted message to the teammate (Bagdat Bimaganbetov) his public key was found through Enigmail Key Management service.</p><p><img src="https://i.imgur.com/0JXOqTM.png" alt=""></p><p><img src="https://i.imgur.com/EHPeYog.png" alt=""></p><p>Then the message was sent using Mozilla Thunderbird mail agent.</p><p><img src="https://i.imgur.com/Bib8Pc5.png" alt=""></p><p>Bagdat has revieved the message</p><p><img src="https://i.imgur.com/d34HIjc.png" alt=""></p><p>To send me encrypted messages I uploaded my public key on the Keyserver (<a href="http://pool.sks-keyservers.net" target="_blank">pool.sks-keyservers.net</a>). Therefore anybody is able to send me an encrypted message using my public key.</p><p>The message has been received from Bagdat:</p><ul>
+<li>
+<p><em><strong>Mozilla Thunderbird</strong></em> mail agent</p>
+<p><img src="https://i.imgur.com/cnE9DkU.png" alt=""></p>
+</li>
+<li>
+<p><em><strong><a href="http://mail.ru" target="_blank">mail.ru</a></strong></em> web browser mail service</p>
+<p><img src="https://i.imgur.com/DvHcNGk.png" alt=""></p>
+</li>
+</ul><p><strong>5. Download XKCD image number 683 to your VM disk.</strong></p><p><img src="https://i.imgur.com/At1luXo.png" alt=""></p><p><strong>6. Send this image over to your teammate. Do this securely</strong></p><p><img src="https://i.imgur.com/n3U2Ebb.png" alt=""></p><p>The message was successfully encrypted and transferred to Bagdat:</p><p><img src="https://i.imgur.com/0AmXrKW.png" alt=""></p><p><strong>7. Describe all important technical steps you will be able to do in the questions above with evidences such as screenshots and explanation</strong></p><p>Steps explanataion and screenshots were described in previous questions.</p><h3 id="2-Anti-forensics"><a class="anchor hidden-xs" href="#2-Anti-forensics" title="2-Anti-forensics"><span class="octicon octicon-link"></span></a>2 Anti-forensics</h3><p><strong>8. How would you hide data on your VM? Name and explain at least four different methods/technologies. Try at least one in plain text.</strong></p><p>We would hide the data on our virtual machine (MS Windows 7 x64) using the following methods:</p><ul>
+<li>
+<p><strong>Using ADS (Alternate Data Stream).</strong><br>
+In NTFS, a file consists of different data streams. One stream is the primary unnamed stream that contains the visible data that we expect to see in a file after opening it. This stream is usually called the default stream and is referenced when no stream name component is specified as a part of the pathname. The second stream is the ADS. A file can have more than one ADS. ADS files can be appended to existing files without affecting their size or functionality.<br>
+We can hide large amounts of data using this method. EXE files can also be hidden and executed from within an ADS.</p>
+</li>
+<li>
+<p><strong>Using Stealth Alternate Data Stream.</strong><br>
+Microsoft uses a set of reserved names for its connected hardware devices’ output operations. Microsoft also uses these names to enables software components to communicate. These names are CON, PRN, AUX, NUL, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, and LPT9.<br>
+We can create more stealth ADS files undetectable using tools such as lns.exe, Streams.exe, Ad spy, and sFind.<br>
+Stealth ADS files can be created using the standard DOS commands by naming our ADS file with one of the reserved names and they will survive and remain undetectable even after using DIR and DIR/R command line switches.</p>
+</li>
+<li>
+<p><strong>Hiding data inside Windows restoration points.</strong><br>
+The snapshots created by Volume shadow copy service (restore points) are taken at specific time intervals, usually after installing/uninstalling new software or performing a system update. Also, you can still create system restore points manually if you wish.<br>
+We can conceal our data or malware inside one of our available restore points.</p>
+</li>
+<li>
+<p><strong>Hiding data inside Windows registry.</strong><br>
+Windows® registry offers a good place for us to hide secret data with minimal possibility of being spotted.<br>
+The amount of available storage is limited, but hiding in this place is relatively easy and difficult to find without using a specialized tool.</p>
+</li>
+<li>
+<p><strong>Hiding Data in a File’s Slack Space.</strong><br>
+Windows® by default stores any data file using a cluster unit, the smallest storage unit in Windows® that can be used to store one file. If the data file does not occupy the entire allocated cluster(s), the extra free space can be used to conceal secret data.</p>
+</li>
+<li>
+<p><strong>Hiding Data in hidden partitions.</strong><br>
+In this technique we can use some tool to hide one of our Windows® partitions.</p>
+</li>
+<li>
+<p><strong>Hiding Data within MFT (Master File Table).</strong><br>
+The NTFS contains at its core a file called the Master File Table ($MFT). There is at least one entry for each file that exist within the NTFS volume, including the $MFT itself.<br>
+The system uses $MFT records to store information about the file or directory stored within each volume; this information takes the form of attributes (eg, size, date/time stamps, and permissionsattributes that are stored within $MFT for each file record).</p>
+</li>
+<li>
+<p><strong>Hiding Data in disk bad blocks.</strong><br>
+$BadClus is one of the 16 metadata files of the $MFT that exist within each NTFS volume. It resides in $MFT entry number 8. Any sector that the operating system cannot read will be marked as a bad sector and will store a reference to its location on the hard disk inside the $BadClus file. So the main role of $BadClus file is to keep track of sectors that are believed to be faulty and should not be written to by the operating system.<br>
+A user has to edit the $BadClus to add the hidden sectors to the run list of $Bad attribute, after which,  the user needs to edit the $Bitmap metafile within $MFT in order to mark these sectors as unavailable through changing its allocation status to 1 (in case we are hiding) or available (in case we are extracting). Finally, we need to paste hidden data into these sectors.</p>
+</li>
+<li>
+<p><strong>Hiding Data under computer hardware level.</strong><br>
+We can call concealing data on a hard disk directly independent from running operating systems to be considered a kind of hardware data hiding.<br>
+Places on a hard disk that could be used to conceal data directly are usually reserved by computer manufacturers.</p>
+<ul>
+<li>data hiding inside host protected area</li>
+<li>data hiding in device configuration</li>
+</ul>
+</li>
+</ul><p><strong>9. Explain how, as an forensic investigator, you can find traces of the previous described methods. Do not reboot your machine from this part on. Document the things you do in an offline text file. Provide this to your report.</strong></p><p>We can find traces of the previous described methods using:</p><ul>
+<li>capture volatile memory</li>
+<li>capture disk drive</li>
+<li>deleted filed recovery</li>
+<li>Windows registry analysis</li>
+<li>file signature analysis</li>
+<li>file attributes analysis</li>
+<li>discover hidden partitions</li>
+<li>detect alternative data streams</li>
+<li>virtual memory analysis</li>
+</ul><p><strong>10. Follow the four mentioned methods from question 8 on your Windows VM. Hide some files.</strong></p><ol>
+<li>
+<p><strong>Hiding data inside Windows restoration points.</strong></p>
+<p>We configured Volume shadow copy (VSS) under Windows 7<br>
+<code>Control Panel ≫ System ≫ System protection&gt;&gt;Create</code></p>
+<p><img src="https://i.imgur.com/SYcdptx.png" alt=""></p>
+<p>The command <code>VSSadmin list Shadowstorage</code> enables us to see the shadows and disk usage of our system’s volumes.</p>
+<p><img src="https://i.imgur.com/WJiz7nZ.png" alt=""></p>
+<p>We created file we wanted to hide:<br>
+<img src="https://i.imgur.com/bGavljM.png" alt=""></p>
+<p>We have only one file inside the <code>C:\Users\Test folder (Shadow.exe)</code>. We now want to hide this file in one of our VSS snapshots. We therefore need to create a new restore point to save our newly created file</p>
+<p>So we created new restore point</p>
+<p><img src="https://i.imgur.com/s8wpexE.png" alt=""></p>
+<p>And now we need to delete our created file Shadow.exe</p>
+<p><img src="https://i.imgur.com/N3t2IFW.png" alt=""></p>
+<p>Now our file Shadow.exe has been deleted from our system, however, it is still in our newly created restoration point, which carries the name <code>\\GLOBALROOT\Device\HarddiskVolumeShadowCopy5\</code></p>
+<p>To access Password.exe inside our restoration point, we need to create a symbolic link and save it in a separate folder <code>C:\Users\RetrievedFiles</code> in our current working directory.</p>
+<p><img src="https://i.imgur.com/E8c0o04.png" alt=""></p>
+<p>We can access our retrieved volume copy contents either directly through Explorer or by accessing it through DOS. Inside our volume copy, if we browse to the <code>Test</code> folder, we can see our file Shadow.exe listed inside</p>
+<p><img src="https://i.imgur.com/NfMzOCM.png" alt=""></p>
+<p>The same we can see in GUI.</p>
+<p><img src="https://i.imgur.com/OZwgfFG.png" alt=""></p>
+</li>
+<li>
+<p><strong>Hide Partition</strong></p>
+<p>Next way to hide data is to hide whole disk partition. To Perform this task firstly we shrinked our disk space and pick out new partition via Disk Manager</p>
+<p><img src="https://i.imgur.com/uIdJYze.png" alt=""></p>
+<p>Then we used <em>EaseUS Partition Master Free</em> tool (<a href="http://www.partition-tool.com/personal.htm" target="_blank">http://www.partition-tool.com/personal.htm</a>) to actually hide the partition.</p>
+<p><img src="https://i.imgur.com/Ut9RKnW.png" alt=""></p>
+<p>Here we see that J: disk is shown in My Computer folder.</p>
+<p><img src="https://i.imgur.com/06MCgIq.png" alt=""></p>
+<p>And now  the disk is marked as Hidden, it is also unreachable from the My Computer folder.</p>
+<p><img src="https://i.imgur.com/NwDraRv.png" alt=""></p>
+<p>To unhide this partition the same tool is used. Also EaseUS Partition Master shows any existing partition.</p>
+</li>
+<li>
+<h4 id="Hidden-ADS-file"><a class="anchor hidden-xs" href="#Hidden-ADS-file" title="Hidden-ADS-file"><span class="octicon octicon-link"></span></a>Hidden ADS file</h4>
+<p>On of the most easiest way to use Alternate Data Streams (ADS) to hide files.</p>
+<p>We created 2 files: outfile.txt and hidden outfile.txt. The content of files is different.</p>
+<p><img src="https://i.imgur.com/mVzW855.png" alt=""></p>
+<p>Using ordinary listing for directory we cannot recognize that hidden file is present here.</p>
+<p>But we apply command <code>rm \r</code> we can see that something new appeared in our folder.<br>
+<img src="https://i.imgur.com/Ncn7vRh.png" alt=""></p>
+</li>
+<li>
+<p><strong>Hiding data inside Windows Registry</strong></p>
+<p>Windows registry offers a good place for us to hide secret data with minimal possibility of being spotted.</p>
+<p>Registry data is structured in a tree format. Each node in the tree is called a key. A registry tree can be only 512 levels deep. A registry key is a container object that plays the same role as a folder in normal Windows naming.</p>
+<p>The maximum size of each registry key is 64 KB (this includes its name, type, and value); when hiding our data we are going to use a key for this purpose. We can conceal more than 50 pages of pure text (ASCII) inside it, which gives plenty of space for anyone to hide valuable information.</p>
+<p><img src="https://i.imgur.com/ProiTtL.png" alt=""></p>
+<p>We chose <code>HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla</code> entry to create some key and hide data inside it.</p>
+<p>We gave this key a name similar to what Windows names other keys. Also we added some empty strings before data, so the content is not visisble at the first view.</p>
+<p><img src="https://i.imgur.com/MzQHBcM.png" alt=""></p>
+<p>Since we successfully buried a large amount of data inside the Windows registry, some may argue that this data could be easily detected. Typical machines running a large number programs for quite some time will have thousands of registry entries, which makes searching for hidden data a challenging task for any computer forensic investigator.</p>
+</li>
+</ol><p><strong>11. Try installing some programs to use for personal use. Hide your traces!</strong></p><p>While work on our tasks we installed such programs as EaseUS Partition Master Free, also Telegram was used.</p><p>To hide our actions we did 3 main steps:</p><ol>
+<li>Deleted all browser history, cash and saved accounts</li>
+<li>Deleted all programs we used to hide data or for personal use</li>
+<li>Clear all logs using <code>wevtutil</code> with following command:</li>
+</ol><pre><code>for /f %1 in ('wevtutil el') do wevtutil cl "%1"
+</code></pre><p><strong>12. Create at least 3 traps for an investigator. For example shutdown the system on open a specific file or listing a directory. Be creative!</strong></p><p><strong>Trap 1</strong></p><p>For the first trap we downloaded test virus from Kaspersky (<a href="https://support.kaspersky.ru/common/diagnostics/7399" target="_blank">https://support.kaspersky.ru/common/diagnostics/7399</a>)</p><p><img src="https://i.imgur.com/yRp9RDu.png" alt=""></p><p>Renamed and left it as 1 of hidden file in a system.</p><p><img src="https://i.imgur.com/PgnoU9D.png" alt=""></p><p><strong>Trap 2</strong></p><p>Second trap shutdown the system while user click on icon of browser on the Desktop.</p><p>For this we generated .bat file that shutdown the system whle launching.<br>
+<img src="https://i.imgur.com/bBfQNy5.png" alt=""></p><p>We renamed and hid this file and created the link on the Desktop. Also we apply icon of Firefox browser.</p><p><img src="https://i.imgur.com/DegLXet.png" alt=""></p><p>So now we have trivial shortcut of Mozilla browser on the Desktop but it actually lanches the script and user log out from the system.</p><p><strong>Trap 3</strong></p><p>For the last trap we set up a trigger for the specific action.</p><p>We applied auduting politics for <code>Downloads</code> and <code>Public</code> directories to log all actions in Security Event Viewer.</p><p><img src="https://i.imgur.com/yY2DQhp.png" alt=""></p><p>Actions that performed on these directories will be shown in Event Viewer/Windows logs/Security<br>
+<img src="https://i.imgur.com/vMdTy4i.png" alt=""></p><p>Then we used Task Scheduler to set trigger on Event with ID 4663: “An attempt was made to access an object”</p><p><img src="https://i.imgur.com/xGoiwQw.png" alt=""></p><p>When this Event ID will appear in Security log, shutdown script will be launched.</p><p><img src="https://i.imgur.com/jdvzf5y.png" alt=""></p><p><strong>14. Describe all important technical steps you will be able to do in the questions from 9 to 12 with evidences such as screenshots and explanation</strong></p><p>All screenshots and explanations are provided above.</p><h3 id="3-Acquisition"><a class="anchor hidden-xs" href="#3-Acquisition" title="3-Acquisition"><span class="octicon octicon-link"></span></a>3 Acquisition</h3><p>Now find another team to switch with. Exchange access to your VM. The VM must remain powered on. Document the answers to the questions on your report</p><p><strong>14. Perform a live acquisition. Don’t forget the order of volatility.</strong></p><p>For virtualbox, we can use the “VBoxManage” tool to create a full dump of a spicific VM.<br>
+First we need to dump the whole system into a file using the following command.</p><pre><code>vboxmanage debugvm "VM_NAME" dumpvmcore --filename dump.elf
+</code></pre><p>Now if we take a look at the ELF file structure we can see that first we have the HEADER section and after that we have the LOAD section which contain all the data of the ELF file (Source: <a href="" target="_blank">ELF format</a> and <a href="https://www.virtualbox.org/manual/ch12.html#ts_guest-core-format" target="_blank">VBox ELF format</a>).<br>
+Also we can make sure that LOAD is the first byte od the data after the HEADER be examin an ELF file with readelf command.<br>
+<img src="https://i.imgur.com/vBlEjuW.jpg" alt=""><br>
+WE can see that the VirtAddr is 0 and also the PhysAddr is also 0 that means that this is the first DATA section in the ELF file.<br>
+Now we can use “objdump” to see the location and the offset of the dump file</p><pre><code>objdump -h dump.elf | egrep -w "(Idx|load1)"
+</code></pre><p>and the result of that command is</p><pre><code>Idx Name          Size      VMA               LMA               File off  Algn
+  1 load1         40000000  0000000000000000  0000000000000000  00000720  2**0
+</code></pre><p>So the memory in this elf file starts at <strong>0x720</strong> and the size is <strong>0x40000000</strong> (1024MB).<br>
+so now we know where is the memory data is located in our ELF file, Now we can dump the memory to another file.</p><pre><code>size=0x40000000; off=0x720; head -c $(($size+$off)) dump.elf | \ 
+tail -c +$(($off+1)) &gt; dump.raw
+</code></pre><p>We will use head command to extract data from the start of our ELF file (including the HEADER section) until the end of the memory segment, and then we will use tail to remove the HEADER section from the ELF file, and in the end we will have a full memory dump without any HEADER of an ELF file.</p><p><strong>16. What is difficult about dumping the memory? What would be different on a physical machine?</strong></p><p>Dumping the memory of a VM is much simpler and more efficient since it can be done from the host machine, so the investigator will not install, run or modify anything on the VM.<br>
+In the previous section we describe how we can dump the memory of a VBox VM from the host machine without touching the VM data.<br>
+On a physical machine the dumping of memory might be a bit harder since it requires to run or install an application (e.g., <em>Dumplt</em>, <em>Belkasoft</em>, and <em>FTK Imager</em>) that will do the memory dumping and transfer the memory dump file to the file.<br>
+<strong>17. What things did you not prepare for during your acquisition?</strong><br>
+We did not prepare to do the live acquisition on the physical machine and just used the VirtualBox that is much simpler.</p><div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 100000px; height: 100000px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav"><li class=""><a href="#Cybercrime-and-Computer-Forensics" title="Cybercrime and Computer Forensics">Cybercrime and Computer Forensics</a><ul class="nav"><li class=""><a href="#Lab-2-Live-Forensics" title="Lab 2: Live Forensics">Lab 2: Live Forensics</a><ul class="nav"><li><a href="#1-Environment" title="1 Environment">1 Environment</a></li><li><a href="#2-Anti-forensics" title="2 Anti-forensics">2 Anti-forensics</a></li><li class=""><a href="#3-Acquisition" title="3 Acquisition">3 Acquisition</a></li></ul></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
+        <div class="toc"><ul class="nav"><li class=""><a href="#Cybercrime-and-Computer-Forensics" title="Cybercrime and Computer Forensics">Cybercrime and Computer Forensics</a><ul class="nav"><li class=""><a href="#Lab-2-Live-Forensics" title="Lab 2: Live Forensics">Lab 2: Live Forensics</a><ul class="nav"><li><a href="#1-Environment" title="1 Environment">1 Environment</a></li><li><a href="#2-Anti-forensics" title="2 Anti-forensics">2 Anti-forensics</a></li><li class=""><a href="#3-Acquisition" title="3 Acquisition">3 Acquisition</a></li></ul></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
