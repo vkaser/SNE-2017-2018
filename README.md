@@ -4,13 +4,13 @@ The Secure Systems and Network Engineering is a one year master program which wa
 Typically students have lectures during the first half of the day, and practical assignments and labs afternoon.
 Core courses of SNE program:
 
-CIA (Classical Internet Applications)
-ES (Essential Skills)
-DS (Distributed Systems)
-SSN (Security of Systems and Networks)
-LIA (Large Installation Administration)
-AS (Advanced Security)
-OT (Offensive Technologies)
-CCF (Cyber Crime and Forensics)
+* CIA (Classical Internet Applications)
+* ES (Essential Skills)
+* DS (Distributed Systems)
+* SSN (Security of Systems and Networks)
+* LIA (Large Installation Administration)
+* AS (Advanced Security)
+* OT (Offensive Technologies)
+* CCF (Cyber Crime and Forensics)
 
 Besides above courses, there are two research projects which students will have to carry out. Each project is one month-long. The second project represents Master’s thesis.
